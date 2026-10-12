@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/paseo-vitals?style=for-the-badge&color=cb3837)](https://www.npmjs.com/package/paseo-vitals)
 [![npm downloads](https://img.shields.io/npm/dm/paseo-vitals?style=for-the-badge&color=cb3837)](https://www.npmjs.com/package/paseo-vitals)
-[![Paseo](https://img.shields.io/badge/Paseo-plugin-8A63D2?style=for-the-badge)](https://paseo.sh)
+[![Paseo](https://img.shields.io/badge/Paseo-%E2%89%A5%200.8.0-8A63D2?style=for-the-badge)](https://paseo.sh)
 [![License](https://img.shields.io/github/license/tomgrin10/paseo-vitals?style=for-the-badge&color=2563eb)](LICENSE)
 
 A small Paseo sidebar dashboard for answering one question: how is this development VM doing?
@@ -31,22 +31,30 @@ Install from npm using the latest Paseo release:
 paseo plugin install paseo-vitals
 ```
 
-For local development:
-
-```sh
-npm ci
-npm run verify
-paseo plugin install "$PWD"
-```
+## Use
 
 Open **Host vitals** from Paseo's sidebar. The dashboard refreshes every five seconds while mounted.
 Docker failure is non-fatal, and process-level detail degrades gracefully on non-Linux hosts.
 
-## More Paseo plugins
+## Development
 
-Also available from [Tom Gringauz](https://github.com/tomgrin10):
+```sh
+npm ci
+npm run verify
+paseo plugin install paseo-vitals
+```
 
-- [Defer](https://github.com/tomgrin10/paseo-defer) — Schedule messages to agents for later delivery.
-- [Graphite](https://github.com/tomgrin10/paseo-graphite) — Monitor Graphite stacks and PR action state.
-- [Smart Session](https://github.com/tomgrin10/paseo-smart-session) — Context-aware compaction and usage insights for long-running agents.
+## License
+
+[MIT](LICENSE) © 2026 Tom Gringauz.
+
+## Other plugins
+
+- [Defer](https://github.com/tomgrin10/paseo-defer) — Schedule messages for later delivery.
+- [Graphite](https://github.com/tomgrin10/paseo-graphite) — Graphite stacks and PR status.
+- [Smart Session](https://github.com/tomgrin10/paseo-smart-session) — Context compaction and usage insights.
+- [Session Guard](https://github.com/tomgrin10/paseo-session-guard) — Pause at session limits and continue after reset.
+- [Transfer](https://github.com/tomgrin10/paseo-transfer) — Copy or move workspaces between hosts.
+- [Transcript Search](https://github.com/tomgrin10/paseo-transcript-search) — Search conversations across connected hosts.
 - [Send to Paseo](https://github.com/tomgrin10/send-to-paseo) — Send GitHub and Graphite PRs to Paseo from Chrome.
+- [Dispatch](https://github.com/tomgrin10/paseo-dispatch) — Route tasks to existing workspaces (development preview).
