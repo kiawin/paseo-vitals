@@ -119,11 +119,16 @@ export function parsePsProcesses(text: string): ProcessRow[] {
 
 async function readProcesses(): Promise<ProcessRow[]> {
   if (process.platform === "darwin") {
-    const { stdout } = await execFileAsync("ps", ["-axww", "-o", "pid=,ppid=,rss=,time=,comm="], {
-      timeout: 4_000,
-      maxBuffer: 16 * 1024 * 1024,
-    });
-    return parsePsProcesses(stdout);
+    try {
+      const { stdout } = await execFileAsync("ps", ["-axww", "-o", "pid=,ppid=,rss=,time=,comm="], {
+        timeout: 4_000,
+        maxBuffer: 16 * 1024 * 1024,
+      });
+      return parsePsProcesses(stdout);
+    } catch {
+      // Keep memory, disk, and Docker. The missing daemon warning reports the process gap.
+      return [];
+    }
   }
   if (process.platform !== "linux") return [];
   const entries = await fs.readdir("/proc", { withFileTypes: true });
